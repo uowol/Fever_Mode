@@ -27,10 +27,26 @@ import org.jetbrains.annotations.Nullable;
 )
 
 public class FlowerMode implements ApplicationComponent, PersistentStateComponent<FlowerMode> {
-
+    static int time = 3000;
     @com.intellij.util.xmlb.annotations.Transient
     private ParticleContainerManager particleContainerManager;
+    Thread thread = new Thread(new Runnable() {
+        @Override
+        public void run() {
+            while (true){
+                while (time>-1){
+                    try {
+                        Thread.sleep(100);
+                        time-=100;
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
 
+                }
+
+            }
+        }
+    })
     private boolean enabled = true;
 
     public static FlowerMode getInstance() {
@@ -39,6 +55,7 @@ public class FlowerMode implements ApplicationComponent, PersistentStateComponen
 
     @Override
     public void initComponent() {
+
         final EditorActionManager editorActionManager = EditorActionManager.getInstance();
         final EditorFactory editorFactory = EditorFactory.getInstance();
         particleContainerManager = new ParticleContainerManager();

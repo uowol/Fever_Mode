@@ -31,6 +31,7 @@ public class Particle {
     private int life;
     private final Color c;
 
+
     public Particle(int x, int y, int dx, int dy, int size, int life, Color c) {
         this.x = x;
         this.y = y;

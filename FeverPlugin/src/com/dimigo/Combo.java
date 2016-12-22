@@ -50,8 +50,8 @@ public class Combo {
             }
             g2d.setFont(new Font("Starlight", Font.BOLD, 80));
             g2d.drawString(count++ +"",1100,100);
+            ComboContainerManager.time =3000;
             g2d.setColor(c);
-            FeverConfigurable.time =3000;
             //notify();
            // g2d.fillRect(x - (size / 2), y - (size / 2), size, size);
            // g2d.dispose();

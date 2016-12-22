@@ -18,8 +18,30 @@ import java.util.Map;
 public class ComboContainerManager extends EditorFactoryAdapter{
     private Thread thread;
     private Map<Editor, ComboContainer> comboContainers = new HashMap<>();
-
+    public static int time = 3000;
     public ComboContainerManager() {
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                while (true){
+                    time=3000;
+                    try {
+                        while (time > -1) {
+                            Thread.sleep(100);
+                            time-=100;
+                            System.out.println(time);
+                        }
+                    }catch (InterruptedException e){
+                    }
+                    finally {
+                        Combo.resetConut();
+                    }
+                }
+            }
+        });
+
+        thread.start();
 //        thread = new Thread(new Runnable() {
 //
 //            @Override
