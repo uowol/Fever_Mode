@@ -40,6 +40,7 @@ class ParticleContainerManager extends EditorFactoryAdapter {
 
             @Override
             public void run() {
+                Particle.check = true;
                 while (true) {
                     for (ParticleContainer particleContainer : particleContainers.values()) {
                         particleContainer.updateParticles();

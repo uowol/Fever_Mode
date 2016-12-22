@@ -23,6 +23,7 @@ import java.awt.*;
  * @author Baptiste Mesta
  */
 public class Particle {
+    private static int count = 0;
     private int x;
     private int y;
     private final int dx;
@@ -30,6 +31,7 @@ public class Particle {
     private final int size;
     private int life;
     private final Color c;
+    public static boolean check = false;
 
     public Particle(int x, int y, int dx, int dy, int size, int life, Color c) {
         this.x = x;
@@ -52,8 +54,14 @@ public class Particle {
         if (life > 0) {
             Graphics2D g2d = (Graphics2D) g.create();
             g2d.setColor(c);
+
+            g2d.setFont(new Font("Starlight", Font.PLAIN, 80));
+            g2d.drawString("" + count, 1100, 100);
+            count++;
+
             g2d.fillRect(x - (size / 2), y - (size / 2), size, size);
             g2d.dispose();
+
         }
     }
 
