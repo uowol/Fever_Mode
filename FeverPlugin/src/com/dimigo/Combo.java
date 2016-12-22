@@ -26,6 +26,12 @@ public class Combo {
         this.c = c;
     }
 
+    public static void resetConut()
+    {
+        count=0;
+    }
+
+
     public boolean update() {
         x += dx;
         y += dy;
@@ -36,11 +42,19 @@ public class Combo {
     public void render(Graphics g) {
         if (life > 0) {
             Graphics2D g2d = (Graphics2D) g.create();
+            if(count>100) {
+                g2d.setColor(Color.RED);
+            }
+            if(count>200){
+                g2d.setColor(Color.MAGENTA);
+            }
             g2d.setFont(new Font("Starlight", Font.BOLD, 80));
             g2d.drawString(count++ +"",1100,100);
             g2d.setColor(c);
-            g2d.fillRect(x - (size / 2), y - (size / 2), size, size);
-            g2d.dispose();
+            FeverConfigurable.time =3000;
+            //notify();
+           // g2d.fillRect(x - (size / 2), y - (size / 2), size, size);
+           // g2d.dispose();
         }
     }
 
@@ -56,4 +70,6 @@ public class Combo {
                 ", c=" + c +
                 '}';
     }
+
+
 }
