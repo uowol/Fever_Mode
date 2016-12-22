@@ -17,33 +17,33 @@ import java.util.Map;
  */
 public class ComboContainerManager extends EditorFactoryAdapter{
     private Thread thread;
-    private Map<Editor, ParticleContainer> particleContainers = new HashMap<>();
+    private Map<Editor, ComboContainer> particleContainers = new HashMap<>();
 
-    public ParticleContainerManager() {
-        thread = new Thread(new Runnable() {
-
-            @Override
-            public void run() {
-                while (true) {
-                    for (ParticleContainer particleContainer : particleContainers.values()) {
-                        particleContainer.updateParticles();
-                    }
-                    try {
-                        Thread.sleep(1000 / 60);
-                    } catch (InterruptedException ignored) {
-                        //thread interrupted, shutdown
-                    }
-                }
-            }
-
-        });
-        thread.start();
-    }
+//    public ComboContainerManager() {
+//        thread = new Thread(new Runnable() {
+//
+//            @Override
+//            public void run() {
+//                while (true) {
+//                    for (ComboContainer comboContainer : particleContainers.values()) {
+//                        comboContainer.updateParticles();
+//                    }
+//                    try {
+//                        Thread.sleep(1000 / 60);
+//                    } catch (InterruptedException ignored) {
+//                        //thread interrupted, shutdown
+//                    }
+//                }
+//            }
+//
+//        });
+//        thread.start();
+//    }
 
     @Override
     public void editorCreated(@NotNull EditorFactoryEvent event) {
         final Editor editor = event.getEditor();
-        particleContainers.put(editor, new ParticleContainer(editor));
+        particleContainers.put(editor, new ComboContainer(editor));
     }
 
     @Override
@@ -52,7 +52,7 @@ public class ComboContainerManager extends EditorFactoryAdapter{
     }
 
     public void update(final Editor editor) {
-        if (FlowerMode.getInstance().isEnabled())
+        if (FeverMode.getInstance().isEnabled())
             SwingUtilities.invokeLater(new Runnable() {
 
                 @Override
@@ -73,9 +73,9 @@ public class ComboContainerManager extends EditorFactoryAdapter{
 //        point.y = point.y - scrollingModel.getVerticalScrollOffset();
         point.y = 30;
         System.out.println("After" + point.x + " " + point.y);
-        final ParticleContainer particleContainer = particleContainers.get(editor);
-        if (particleContainer != null) {
-            particleContainer.update(point);
+        final ComboContainer comboContainer = particleContainers.get(editor);
+        if (comboContainer != null) {
+            comboContainer.update(point);
         }
     }
 

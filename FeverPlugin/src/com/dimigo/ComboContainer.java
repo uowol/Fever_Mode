@@ -18,10 +18,10 @@ public class ComboContainer extends JComponent implements ComponentListener {
 
     private final JComponent parent;
     private final Editor editor;
-    private boolean shakeDir;
-    private ArrayList<Particle> particles = new ArrayList<>(50);
+//    private boolean shakeDir;
+//    private ArrayList<Particle> particles = new ArrayList<>(50);
 
-    public ParticleContainer(Editor editor) {
+    public ComboContainer(Editor editor) {
         this.editor = editor;
         parent = this.editor.getContentComponent();
         parent.add(this);
@@ -38,50 +38,50 @@ public class ComboContainer extends JComponent implements ComponentListener {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        renderParticles(g);
+//        renderParticles(g);
     }
 
-    public void updateParticles() {
-        if (!particles.isEmpty()) {
-            ArrayList<Particle> tempParticles = new ArrayList<>(particles);
-            final Iterator<Particle> particleIterator = tempParticles.iterator();
-            while (particleIterator.hasNext()) {
-                if (particleIterator.next().update()) {
-                    particleIterator.remove();
-                }
-            }
-            particles = tempParticles;
-            this.repaint();
-        }
+//    public void updateParticles() {
+//        if (!particles.isEmpty()) {
+//            ArrayList<Particle> tempParticles = new ArrayList<>(particles);
+//            final Iterator<Particle> particleIterator = tempParticles.iterator();
+//            while (particleIterator.hasNext()) {
+//                if (particleIterator.next().update()) {
+//                    particleIterator.remove();
+//                }
+//            }
+//            particles = tempParticles;
+//            this.repaint();
+//        }
+//
+//    }
 
-    }
+//    public void addParticle(int x, int y) {
+//        //TODO configurable
+//        int dx, dy;
+//        dx = (int) (Math.random() * 4) * (Math.random() > 0.5 ? -1 : 1);
+//        dy = (int) (Math.random() * -3 - 1);
+//
+//        int size = (int) (Math.random() * 3 + 1);
+//        int life = 15;
+//        final Particle e = new Particle(x, y, dx, dy, size, life, JBColor.darkGray);
+//        particles.add(e);
+//    }
 
-    public void addParticle(int x, int y) {
-        //TODO configurable
-        int dx, dy;
-        dx = (int) (Math.random() * 4) * (Math.random() > 0.5 ? -1 : 1);
-        dy = (int) (Math.random() * -3 - 1);
-
-        int size = (int) (Math.random() * 3 + 1);
-        int life = 15;
-        final Particle e = new Particle(x, y, dx, dy, size, life, JBColor.darkGray);
-        particles.add(e);
-    }
-
-    public void renderParticles(Graphics g) {
-        for (Particle particle : particles) {
-            particle.render(g);
-        }
-    }
+//    public void renderParticles(Graphics g) {
+//        for (Particle particle : particles) {
+//            particle.render(g);
+//        }
+//    }
 
     public void update(Point point) {
         //TODO configurable
-        for (int i = 0; i < 7; i++) {
-            addParticle(point.x, point.y);
-            System.err.println(point.x + " " + point.y);
-        }
-        shakeEditor(parent, 5, 5, shakeDir);
-        shakeDir = !shakeDir;
+//        for (int i = 0; i < 7; i++) {
+//            addParticle(point.x, point.y);
+//            System.err.println(point.x + " " + point.y);
+//        }
+//        shakeEditor(parent, 5, 5, shakeDir);
+//        shakeDir = !shakeDir;
         this.repaint();
     }
 
@@ -94,7 +94,7 @@ public class ComboContainer extends JComponent implements ComponentListener {
     }
 
     private void updateBounds() {
-        ParticleContainer.this.setBounds(editor.getScrollingModel().getVisibleArea().getBounds());
+        ComboContainer.this.setBounds(editor.getScrollingModel().getVisibleArea().getBounds());
     }
 
     @Override

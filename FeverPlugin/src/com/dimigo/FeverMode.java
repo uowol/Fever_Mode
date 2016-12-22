@@ -29,20 +29,20 @@ import org.jetbrains.annotations.Nullable;
 public class FeverMode implements ApplicationComponent, PersistentStateComponent<FeverMode> {
 
     @com.intellij.util.xmlb.annotations.Transient
-    private ParticleContainerManager particleContainerManager;
+    private ComboContainerManager comboContainerManager;
 
     private boolean enabled = true;
 
-    public static FlowerMode getInstance() {
-        return ApplicationManager.getApplication().getComponent(FlowerMode.class);
+    public static FeverMode getInstance() {
+        return ApplicationManager.getApplication().getComponent(FeverMode.class);
     }
 
     @Override
     public void initComponent() {
         final EditorActionManager editorActionManager = EditorActionManager.getInstance();
         final EditorFactory editorFactory = EditorFactory.getInstance();
-        particleContainerManager = new ParticleContainerManager();
-        editorFactory.addEditorFactoryListener(particleContainerManager, new Disposable() {
+        comboContainerManager = new ComboContainerManager();
+        editorFactory.addEditorFactoryListener(comboContainerManager, new Disposable() {
             @Override
             public void dispose() {
 
@@ -61,13 +61,13 @@ public class FeverMode implements ApplicationComponent, PersistentStateComponent
 
     private void updateEditor(@NotNull final Editor editor) {
         //TODO configurable
-        particleContainerManager.update(editor);
+        comboContainerManager.update(editor);
     }
 
     @Override
     public void disposeComponent() {
-        particleContainerManager.dispose();
-        particleContainerManager = null;
+        comboContainerManager.dispose();
+        comboContainerManager = null;
     }
 
     @NotNull
@@ -78,12 +78,12 @@ public class FeverMode implements ApplicationComponent, PersistentStateComponent
 
     @Nullable
     @Override
-    public FlowerMode getState() {
+    public FeverMode getState() {
         return this;
     }
 
     @Override
-    public void loadState(FlowerMode state) {
+    public void loadState(FeverMode state) {
         XmlSerializerUtil.copyBean(state, this);
     }
 

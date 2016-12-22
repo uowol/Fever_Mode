@@ -1,25 +1,26 @@
 package com.dimigo;
 
+import com.intellij.openapi.options.ConfigurableBase;
 import com.intellij.openapi.options.ConfigurableUi;
 import org.jetbrains.annotations.NotNull;
 
 /**
  * Created by Chan_Woo_Kim on 2016-12-22.
  */
-public class FeverConfigurable extends ConfigurableUi<>{
-    private final FlowerMode settings;
+public class FeverConfigurable extends ConfigurableBase<FeverModeConfigurableUI, FeverMode> {
+    private final FeverMode settings;
 
-    public FlowerModeConfigurable(@NotNull FlowerMode settings) {
+    public FeverConfigurable(@NotNull FeverMode settings) {
         super("Flower.mode", "Flower mode", "Flower.mode");
         this.settings = settings;
     }
-    public FlowerModeConfigurable() {
-        this(FlowerMode.getInstance());
+    public FeverConfigurable() {
+        this(FeverMode.getInstance());
     }
 
     @NotNull
     @Override
-    protected FlowerMode getSettings() {
+    protected FeverMode getSettings() {
         if (settings == null) {
             throw new IllegalStateException("Flower mode is null");
         }
@@ -27,8 +28,8 @@ public class FeverConfigurable extends ConfigurableUi<>{
     }
 
     @Override
-    protected FlowerModeConfigurableUI createUi() {
-        return new FlowerModeConfigurableUI(settings);
+    protected FeverModeConfigurableUI createUi() {
+        return new FeverModeConfigurableUI(settings);
     }
 
 }
