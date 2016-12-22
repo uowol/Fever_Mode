@@ -19,7 +19,7 @@ public class ComboContainer extends JComponent implements ComponentListener {
     private final JComponent parent;
     private final Editor editor;
 //    private boolean shakeDir;
-//    private ArrayList<Particle> particles = new ArrayList<>(50);
+    private ArrayList<Combo> combos = new ArrayList<>(50);
 
     public ComboContainer(Editor editor) {
         this.editor = editor;
@@ -30,31 +30,31 @@ public class ComboContainer extends JComponent implements ComponentListener {
         parent.addComponentListener(this);
     }
 
-    private void shakeEditor(JComponent parent, int dx, int dy, boolean dir) {
-        final Rectangle bounds = parent.getBounds();
-        parent.setBounds(bounds.x + (dir ? -dx : dx), bounds.y + (dir ? -dy : dy), bounds.width, bounds.height);
-    }
+//    private void shakeEditor(JComponent parent, int dx, int dy, boolean dir) {
+//        final Rectangle bounds = parent.getBounds();
+//        parent.setBounds(bounds.x + (dir ? -dx : dx), bounds.y + (dir ? -dy : dy), bounds.width, bounds.height);
+//    }
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-//        renderParticles(g);
+        renderParticles(g);
     }
 
-//    public void updateParticles() {
-//        if (!particles.isEmpty()) {
-//            ArrayList<Particle> tempParticles = new ArrayList<>(particles);
-//            final Iterator<Particle> particleIterator = tempParticles.iterator();
-//            while (particleIterator.hasNext()) {
-//                if (particleIterator.next().update()) {
-//                    particleIterator.remove();
-//                }
-//            }
-//            particles = tempParticles;
-//            this.repaint();
-//        }
-//
-//    }
+    public void updateCombos() {
+        if (!combos.isEmpty()) {
+            ArrayList<Combo> tempCombos = new ArrayList<>(combos);
+            final Iterator<Combo> particleIterator = tempCombos.iterator();
+            while (particleIterator.hasNext()) {
+                if (particleIterator.next().update()) {
+                    particleIterator.remove();
+                }
+            }
+            combos = tempCombos;
+            this.repaint();
+        }
+
+    }
 
 //    public void addParticle(int x, int y) {
 //        //TODO configurable
@@ -68,11 +68,11 @@ public class ComboContainer extends JComponent implements ComponentListener {
 //        particles.add(e);
 //    }
 
-//    public void renderParticles(Graphics g) {
-//        for (Particle particle : particles) {
-//            particle.render(g);
-//        }
-//    }
+    public void renderCombos(Graphics g) {
+        for (Combo particle : combos) {
+            particle.render(g);
+        }
+    }
 
     public void update(Point point) {
         //TODO configurable
@@ -82,6 +82,7 @@ public class ComboContainer extends JComponent implements ComponentListener {
 //        }
 //        shakeEditor(parent, 5, 5, shakeDir);
 //        shakeDir = !shakeDir;
+
         this.repaint();
     }
 

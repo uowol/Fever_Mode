@@ -32,7 +32,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FlowerModeConfigurable.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FlowerModeConfigurable.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/pabix/flowermode/FlowerModeConfigurable.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="168">
@@ -52,11 +52,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Particle.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Particle.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/pabix/flowermode/Particle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="27" column="25" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
+            <state relative-caret-position="380">
+              <caret line="70" column="5" selection-start-line="24" selection-start-column="23" selection-end-line="70" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -925,14 +925,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/pabix/flowermode/Particle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="27" column="25" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/pabix/flowermode/FlowerModeConfigurableUI.form">
       <provider selected="true" editor-type-id="ui-designer">
         <state />
@@ -981,6 +973,14 @@
             <element signature="e#521#522#0" expanded="true" />
             <element signature="e#567#568#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/pabix/flowermode/Particle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="70" column="5" selection-start-line="24" selection-start-column="23" selection-end-line="70" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
