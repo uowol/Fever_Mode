@@ -1,0 +1,34 @@
+<idea-plugin version="2">
+  <id>com.pabix.flowermode</id>
+  <name>Flower mode</name>
+  <version>1.0</version>
+  <vendor email="alllhvhla@gmail.com" url="http://www.yourcompany.com">YourCompany</vendor>
+
+  <description><![CDATA[
+      Based on the activate-power-mode atom plugin.<br>
+      <h1>How to use</h1><br>
+Install the plugin then simply enable the sparkling in Preferences > Appearance > Power mode
+    ]]></description>
+
+  <change-notes><![CDATA[
+      Add change notes here.<br>
+      <em>most HTML tags may be used</em>
+    ]]>
+  </change-notes>
+
+  <idea-version since-build="141.0"/>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <applicationConfigurable groupId="appearance" groupWeight="20" id="flower.mode" displayName="Flower mode" instance="com.pabix.flowermode.FlowerModeConfigurable" />
+  </extensions>
+
+  <application-components>
+    <component>
+      <implementation-class>com.pabix.flowermode.FlowerMode</implementation-class>
+    </component>
+  </application-components>
+
+  <actions>
+  </actions>
+
+</idea-plugin>
