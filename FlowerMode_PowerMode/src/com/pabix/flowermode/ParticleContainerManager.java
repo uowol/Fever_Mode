@@ -36,25 +36,24 @@ class ParticleContainerManager extends EditorFactoryAdapter {
     private Map<Editor, ParticleContainer> particleContainers = new HashMap<>();
 
     public ParticleContainerManager() {
-        thread = new Thread(new Runnable() {
-
-            @Override
-            public void run() {
-                Particle.check = true;
-                while (true) {
-                    for (ParticleContainer particleContainer : particleContainers.values()) {
-                        particleContainer.updateParticles();
-                    }
-                    try {
-                        Thread.sleep(1000 / 60);
-                    } catch (InterruptedException ignored) {
-                        //thread interrupted, shutdown
-                    }
-                }
-            }
-
-        });
-        thread.start();
+//        thread = new Thread(new Runnable() {
+//
+//            @Override
+//            public void run() {
+//                while (true) {
+//                    for (ParticleContainer particleContainer : particleContainers.values()) {
+//
+//                    }
+//                    try {
+//                        Thread.sleep(1000 / 60);
+//                    } catch (InterruptedException ignored) {
+//                        //thread interrupted, shutdown
+//                    }
+//                }
+//            }
+//
+//        });
+//        thread.start();
     }
 
     @Override
@@ -80,6 +79,9 @@ class ParticleContainerManager extends EditorFactoryAdapter {
     }
 
     private void updateInUI(Editor editor) {
+        for (ParticleContainer particleContainer : particleContainers.values()) {
+            particleContainer.updateParticles();
+        }
         VisualPosition visualPosition = editor.getCaretModel().getVisualPosition();
         Point point = editor.visualPositionToXY(visualPosition);
         ScrollingModel scrollingModel = editor.getScrollingModel();

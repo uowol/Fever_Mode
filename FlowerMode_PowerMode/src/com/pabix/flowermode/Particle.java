@@ -55,9 +55,7 @@ public class Particle {
             Graphics2D g2d = (Graphics2D) g.create();
             g2d.setColor(c);
 
-            g2d.setFont(new Font("Starlight", Font.PLAIN, 80));
-            g2d.drawString("" + count, 1100, 100);
-            count++;
+
 
             g2d.fillRect(x - (size / 2), y - (size / 2), size, size);
             g2d.dispose();

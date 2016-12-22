@@ -29,7 +29,7 @@ import com.intellij.ui.JBColor;
  * @author Baptiste Mesta
  */
 public class ParticleContainer extends JComponent implements ComponentListener {
-
+    private static int count = 0;
     private final JComponent parent;
     private final Editor editor;
     private boolean shakeDir;
