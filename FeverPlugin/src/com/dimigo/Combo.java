@@ -7,6 +7,7 @@ import java.awt.*;
  */
 public class Combo {
 
+    private static int count = 0;
     private int x;
     private int y;
     private final int dx;
@@ -35,6 +36,8 @@ public class Combo {
     public void render(Graphics g) {
         if (life > 0) {
             Graphics2D g2d = (Graphics2D) g.create();
+            g2d.setFont(new Font("Starlight", Font.BOLD, 80));
+            g2d.drawString(count++ +"",1100,100);
             g2d.setColor(c);
             g2d.fillRect(x - (size / 2), y - (size / 2), size, size);
             g2d.dispose();

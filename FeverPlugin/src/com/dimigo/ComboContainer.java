@@ -19,7 +19,7 @@ public class ComboContainer extends JComponent implements ComponentListener {
     private final JComponent parent;
     private final Editor editor;
 //    private boolean shakeDir;
-    private ArrayList<Combo> combos = new ArrayList<>(50);
+    private ArrayList<Combo> combos = new ArrayList<>();
 
     public ComboContainer(Editor editor) {
         this.editor = editor;
@@ -38,51 +38,55 @@ public class ComboContainer extends JComponent implements ComponentListener {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        renderParticles(g);
+        renderCombos(g);
     }
 
     public void updateCombos() {
-        if (!combos.isEmpty()) {
-            ArrayList<Combo> tempCombos = new ArrayList<>(combos);
-            final Iterator<Combo> particleIterator = tempCombos.iterator();
-            while (particleIterator.hasNext()) {
-                if (particleIterator.next().update()) {
-                    particleIterator.remove();
-                }
-            }
-            combos = tempCombos;
-            this.repaint();
-        }
+//        if (!combos.isEmpty()) {
+//            ArrayList<Combo> tempCombos = new ArrayList<>(combos);
+//            final Iterator<Combo> particleIterator = tempCombos.iterator();
+//            while (particleIterator.hasNext()) {
+//                if (particleIterator.next().update()) {
+//                    particleIterator.remove();
+//                }
+//            }
+//            combos = tempCombos;
+        combos = new ArrayList<>();
+        addCombo(1100, 100);
+        this.repaint();
+//        }
 
     }
 
-//    public void addParticle(int x, int y) {
-//        //TODO configurable
-//        int dx, dy;
-//        dx = (int) (Math.random() * 4) * (Math.random() > 0.5 ? -1 : 1);
-//        dy = (int) (Math.random() * -3 - 1);
-//
-//        int size = (int) (Math.random() * 3 + 1);
-//        int life = 15;
-//        final Particle e = new Particle(x, y, dx, dy, size, life, JBColor.darkGray);
-//        particles.add(e);
-//    }
+    public void addCombo(int x, int y) {
+        //TODO configurable
+        int dx, dy;
+        dx = (int) (Math.random() * 4) * (Math.random() > 0.5 ? -1 : 1);
+        dy = (int) (Math.random() * -3 - 1);
+
+        int size = (int) (Math.random() * 3 + 1);
+        int life = 15;
+        final Combo e = new Combo(x, y, dx, dy, size, life, JBColor.darkGray);
+        combos.add(e);
+    }
 
     public void renderCombos(Graphics g) {
-        for (Combo particle : combos) {
-            particle.render(g);
+        for (Combo combo : combos) {
+            combo.render(g);
+            System.out.println("꺄하하하하하하하");
         }
+        combos = new ArrayList<>();
     }
 
     public void update(Point point) {
         //TODO configurable
-//        for (int i = 0; i < 7; i++) {
-//            addParticle(point.x, point.y);
+//        for (int i = 0; i < 1; i++) {
+//            addCombo(point.x, point.y);
 //            System.err.println(point.x + " " + point.y);
 //        }
 //        shakeEditor(parent, 5, 5, shakeDir);
 //        shakeDir = !shakeDir;
-
+        addCombo(point.x, point.y);
         this.repaint();
     }
 

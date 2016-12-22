@@ -20,24 +20,24 @@ public class ComboContainerManager extends EditorFactoryAdapter{
     private Map<Editor, ComboContainer> comboContainers = new HashMap<>();
 
     public ComboContainerManager() {
-        thread = new Thread(new Runnable() {
-
-            @Override
-            public void run() {
-                while (true) {
-                    for (ComboContainer comboContainer : comboContainers.values()) {
-                        comboContainer.updateCombos();
-                    }
-                    try {
-                        Thread.sleep(1000 / 60);
-                    } catch (InterruptedException ignored) {
-                        //thread interrupted, shutdown
-                    }
-                }
-            }
-
-        });
-        thread.start();
+//        thread = new Thread(new Runnable() {
+//
+//            @Override
+//            public void run() {
+//                while (true) {
+//                    for (ComboContainer comboContainer : comboContainers.values()) {
+//                        comboContainer.updateCombos();
+//                    }
+//                    try {
+//                        Thread.sleep(1000 / 60);
+//                    } catch (InterruptedException ignored) {
+//                        //thread interrupted, shutdown
+//                    }
+//                }
+//            }
+//
+//        });
+//        thread.start();
     }
 
     @Override
